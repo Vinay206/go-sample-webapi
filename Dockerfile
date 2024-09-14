@@ -1,5 +1,5 @@
 # Stage 1: Build the Go binary
-FROM golang:1.20-alpine AS builder
+FROM golang:1.23-alpine AS builder
 
 # Set the working directory inside the container
 WORKDIR /app
@@ -24,7 +24,7 @@ WORKDIR /app
 
 # Copy the static files from the build stage
 COPY --from=builder /app/main /app/
-COPY --from=builder /app/static /app/static
+# COPY --from=builder /app/static /app/static
 
 # Expose port 80
 EXPOSE 80

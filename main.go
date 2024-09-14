@@ -1,17 +1,17 @@
 package main
 
 import (
-	"fmt"
-	"net/http"
+    "fmt"
+    "net/http"
 )
 
+func helloWorld(w http.ResponseWriter, r *http.Request) {
+    fmt.Fprintf(w, "Hello, World!")
+}
+
 func main() {
-	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		fmt.Fprintf(w, "Welcome to my website!")
-	})
+    http.HandleFunc("/hello", helloWorld)  // Define route
 
-	fs := http.FileServer(http.Dir("static/"))
-	http.Handle("/static/", http.StripPrefix("/static/", fs))
-
-	http.ListenAndServe(":80", nil)
+    fmt.Println("Server is listening on port 8080...")
+    http.ListenAndServe(":8080", nil)  // Start server on port 8080
 }
