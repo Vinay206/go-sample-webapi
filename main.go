@@ -12,6 +12,6 @@ func helloWorld(w http.ResponseWriter, r *http.Request) {
 func main() {
     http.HandleFunc("/hello", helloWorld)  // Define route
 
-    fmt.Println("Server is listening on port 8080...")
-    http.ListenAndServe(":8080", nil)  // Start server on port 8080
+    fmt.Println("Server is listening on port 80...")
+    http.ListenAndServe(":80", nil)  // Start server on port 8080
 }
