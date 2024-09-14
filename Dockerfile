@@ -5,7 +5,7 @@ FROM golang:1.20-alpine AS builder
 WORKDIR /app
 
 # Copy the Go module files to leverage caching of dependencies
-COPY go.mod go.sum ./
+COPY go.mod ./
 
 # Download all dependencies. Caching these will speed up subsequent builds.
 RUN go mod download
